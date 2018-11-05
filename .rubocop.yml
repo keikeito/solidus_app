@@ -1,0 +1,22 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'lib/tasks/*'
+    - vendor/**/*
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/BlockComments:
+  Exclude:
+    - spec/spec_helper.rb
+
+Airbnb/OptArgParameters:
+  Enabled: false
