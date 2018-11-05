@@ -51,6 +51,7 @@ group :development, :test do
   gem "rails-controller-testing"
   gem 'rubocop'
   gem 'rubocop-airbnb'
+  gem 'factory_girl_rails'
 
 end
 
