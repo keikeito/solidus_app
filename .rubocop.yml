@@ -17,7 +17,8 @@ Metrics/LineLength:
   Enabled: false
 
 Style/BlockComments:
-  Enabled: false
+  Exclude:
+    - spec/spec_helper.rb
 
 Airbnb/OptArgParameters:
   Enabled: false
