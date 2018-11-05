@@ -3,14 +3,12 @@ inherit_from:
 
 AllCops:
   Exclude:
-    - db/schema.rb
-    - 'db/migrate/*'
+    - 'db/**/*'
     - 'bin/*'
     - 'config/environments/*'
     - 'config/application.rb'
     - 'config/initializers/*'
     - 'lib/tasks/*'
-    - db/seeds.rb
     - vendor/**/*
 
 Metrics/LineLength:
