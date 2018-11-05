@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Potepan::ProductsController, type: :controller do
   let(:product_property) { create(:product_property) }
 
-  describe "GET product show"
+  describe "GET product show" do
     before do
       get :show, params: { id: product_property.product.id }
     end
@@ -24,4 +24,4 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       expect(assigns(:product_properties)).to eq Array(product_property)
     end
   end
-
+end
