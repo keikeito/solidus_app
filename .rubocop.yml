@@ -1,6 +1,5 @@
 inherit_from:
   - .rubocop_airbnb.yml
-  - .rubocop_todo.yml
 
 AllCops:
   Exclude:
@@ -12,6 +11,13 @@ AllCops:
     - 'config/initializers/*'
     - 'lib/tasks/*'
     - db/seeds.rb
+    - vendor/**/*
 
 Metrics/LineLength:
-  Max: 115
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Airbnb/OptArgParameters:
+  Enabled: false
