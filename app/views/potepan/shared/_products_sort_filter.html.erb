@@ -10,7 +10,7 @@
   </div>
   <div class="col-xs-6">
     <div class="btn-group pull-right" role="group">
-      <button type="button" class="btn btn-default <%= !params.key?(:layout) || params[:layout] == "grid" ? "active" : ''%>" onclick= "window.location.href= '<%= potepan_category_path(params[:id], layout: "grid")%>'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
+      <button type="button" class="btn btn-default <%= params[:layout].present? %>" onclick= "window.location.href= '<%= potepan_category_path(params[:id], layout: "grid")%>'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
       <button type="button" class="btn btn-default <%=  params[:layout] == "list" ? "active" : ''%>" onclick="window.location.href= '<%= potepan_category_path(params[:id], layout: "list")%>'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
     </div>
   </div>
