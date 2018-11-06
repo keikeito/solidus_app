@@ -1,27 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Potepan::ProductsController, type: :controller do
-  let(:product_property) { create(:product_property) }
+  let(:product) { create(:product) }
 
   describe "GET product show" do
     before do
-      get :show, params: { id: product_property.product.id }
+      get :show, params: { id: product.id }
     end
 
     it "render products/show" do
-      expect(response).to render_template :show
+      expect(response).to render_template("potepan/products/show")
     end
 
-    it "return statuscode 200" do
-      expect(response.status).to eq(200)
+    it "returns successful response" do
+      expect(response).to have_http_status(:ok)
     end
 
     it "@product should have product" do
-      expect(assigns(:product)).to eq(product_property.product)
-    end
-
-    it "@product_properties should have product" do
-      expect(assigns(:product_properties)).to eq Array(product_property)
+      expect(assigns(:product)).to eq(product)
     end
   end
 end

@@ -14,8 +14,8 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
       expect(response).to render_template("potepan/categories/show")
     end
 
-    it "return statuscode 200" do
-      expect(response.status).to eq(200)
+    it "returns successful response" do
+      expect(response).to have_http_status(:ok)
     end
 
     it "@taxon have one_taxon" do
