@@ -23,22 +23,32 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
       expect(assigns(:taxon)).to eq(cap_taxon)
     end
 
-    it "@products should have cap_taxon.products" do
-      products.each do |product|
-        product.taxons << cap_taxon
-      end
-      expect(assigns(:products)).to match_array(products)
-    end
-
-    it "@products should have not wallet_taxon.products" do
-      products.each do |product|
-        product.taxons << wallet_taxon
-      end
-      expect(assigns(:products)).to match_array([])
-    end
-
     it '@taxonomies should have taxonomies' do
       expect(assigns(:taxonomies)).to eq(taxonomies)
+    end
+
+    context 'When product and taxon match' do
+      before do
+        products.each do |product|
+          product.taxons << cap_taxon
+        end
+      end
+
+      it "@products have a matching array" do
+        expect(assigns(:products)).to match_array(products)
+      end
+    end
+
+    context 'When product and taxon mismatch' do
+      before do
+        products.each do |product|
+          product.taxons << wallet_taxon
+        end
+      end
+
+      it "@products have an empty array" do
+        expect(assigns(:products)).to match_array([])
+      end
     end
   end
 end
