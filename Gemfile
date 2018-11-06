@@ -52,6 +52,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-airbnb'
   gem 'factory_girl_rails'
+  gem 'capybara'
 
 end
 
