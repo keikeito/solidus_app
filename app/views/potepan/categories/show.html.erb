@@ -11,7 +11,7 @@
         <%= render 'potepan/shared/color_filter' %>
         <%= render 'potepan/shared/size_filter' %>
       </div>
-      <div class="col-md-9 col-sm-8 col-xs-12">
+      <div class="col-md-9 col-sm-8 col-xs-12 productlist">
         <%= render 'potepan/shared/products_sort_filter', taxon: @taxon %>
           <% if list_layout? %>
               <%= render partial: 'potepan/shared/list_product', collection: @products, as: 'product' %>
