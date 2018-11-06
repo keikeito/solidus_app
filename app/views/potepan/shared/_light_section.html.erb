@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-xs-6">
         <div class="page-title">
-          <h2><%= pageHeader_title.name %></h2>
+          <h2><%= page_header_title.name %></h2>
         </div>
       </div>
       <div class="col-xs-6">
@@ -12,12 +12,12 @@
           <li>
             <%= link_to 'HOME', potepan_root_path%>
           </li>
-          <% if pageHeader_title == taxon %>
+          <% if page_header_title == taxon %>
             <li>
               <a href="#">shop</a>
             </li>
           <% end %>
-          <li class="active"><%= pageHeader_title.name %></li>
+          <li class="active"><%= page_header_title.name %></li>
         </ol>
       </div>
     </div>
