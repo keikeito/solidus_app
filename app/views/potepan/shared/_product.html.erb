@@ -8,9 +8,11 @@
         </span>
       </div>
       <div class="media-body">
-        <h4 class="media-heading">
-          <a href="<%= potepan_product_path(product.id) %>"><%= product.name %></a>
-        </h4>
+        <div class="media-heading">
+          <%= link_to potepan_product_path(product.id) do %>
+            <h4><%= product.name %></h4>
+          <% end %>
+        </div>
         <p><%= product.description %></p>
         <h3><%= product.display_price %></h3>
         <div class="btn-group" role="group">
