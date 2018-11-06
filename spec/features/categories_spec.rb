@@ -2,19 +2,19 @@ require 'rails_helper'
 
 feature "categories pages" do
   # product
-  given!(:bag) { create(:product, name: 'Bag', price: 20.00) }
-  given!(:tote) { create(:product, name: 'Tote', price: 21.00) }
-  given!(:cap) { create(:product, name: 'Cap', price: 22.00) }
-  given!(:ruby_shirt) { create(:product, name: 'Ruby_shirt', price: 23.00) }
+  given(:bag) { create(:product, name: 'Bag', price: 20.00) }
+  given(:tote) { create(:product, name: 'Tote', price: 21.00) }
+  given(:cap) { create(:product, name: 'Cap', price: 22.00) }
+  given(:ruby_shirt) { create(:product, name: 'Ruby_shirt', price: 23.00) }
   # taxon
-  given!(:brand_taxon) { create(:taxon, name: 'Brand') }
-  given!(:categories_taxon) { create(:taxon, name: 'Categories') }
-  given!(:bag_taxon) { create(:taxon, name: 'Bags') }
-  given!(:cap_taxon) { create(:taxon, name: 'Caps', taxonomy_id: categories_taxonomy.id, parent_id: categories_taxon.id) }
-  given!(:ruby_taxon) { create(:taxon, name: 'Ruby', taxonomy_id: brand_taxonomy.id, parent_id: brand_taxon.id) }
+  given(:brand_taxon) { create(:taxon, name: 'Brand') }
+  given(:categories_taxon) { create(:taxon, name: 'Categories') }
+  given(:bag_taxon) { create(:taxon, name: 'Bags') }
+  given(:cap_taxon) { create(:taxon, name: 'Caps', taxonomy_id: categories_taxonomy.id, parent_id: categories_taxon.id) }
+  given(:ruby_taxon) { create(:taxon, name: 'Ruby', taxonomy_id: brand_taxonomy.id, parent_id: brand_taxon.id) }
   # taxonomy
-  given!(:brand_taxonomy) { create(:taxonomy, name: "Brand") }
-  given!(:categories_taxonomy) { create(:taxonomy, name: "Categories") }
+  given(:brand_taxonomy) { create(:taxonomy, name: "Brand") }
+  given(:categories_taxonomy) { create(:taxonomy, name: "Categories") }
   # images
   given(:bag_image) { create(:image, viewable_id: bag.id, attachment_file_name: "bag_image") }
   given(:tote_image) { create(:image, viewable_id: tote.id, attachment_file_name: "tote_image") }
