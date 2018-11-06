@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 feature "categories pages" do
+  # product
   given!(:bag) { create(:product, name: 'Bag') }
-  given!(:bag_taxon) { create(:taxon, name: 'Bags') }
   given!(:tote) { create(:product, name: 'Tote') }
-  given!(:ruby_shirt) { create(:product, name: 'Ruby_shirt') }
-  given!(:ruby_taxon) { create(:taxon, name: 'Ruby', taxonomy_id: Spree::Taxonomy.first.id, parent_id: 1) }
-  given!(:taxonomy_categories) { create(:taxonomy, name: "Categories") }
   given!(:cap) { create(:product, name: 'Cap') }
+  given!(:ruby_shirt) { create(:product, name: 'Ruby_shirt') }
+  # taxon
+  given!(:bag_taxon) { create(:taxon, name: 'Bags') }
   given!(:cap_taxon) { create(:taxon, name: 'Caps', taxonomy_id: taxonomy_categories.id, parent_id: 1) }
+  given!(:ruby_taxon) { create(:taxon, name: 'Ruby', taxonomy_id: Spree::Taxonomy.first.id, parent_id: 1) }
+  # taxonomy
+  given!(:taxonomy_categories) { create(:taxonomy, name: "Categories") }
 
   background do
     image = File.open(File.expand_path('../../fixtures/JPEG_example_.jpg', __FILE__))
@@ -59,20 +62,22 @@ feature "categories pages" do
     expect(page).to have_content 'Ruby_shirt'
   end
 
-  scenario "LIST become active and switch URL when click LIST ", js: true do
+  scenario "LIST become active, GRID dosen't become active and switch to intended URL when click LIST ", js: true do
     find('.link_btn', :text => 'Link', visible: false).click
     expect(find("#List_active")).to have_css('.active')
+    expect(find("#Grid_active")).not_to have_css('.active')
     uri = URI.parse(current_url)
     expect("#{uri.path}?#{uri.query}").to eq "/potepan/categories/#{bag_taxon.id}?layout=list"
   end
 
-  scenario "GRID become active and switch URL when click GRID", js: true do
+  scenario "GRID become active, LIST dosen't become active and switch to intended URL when click GRID", js: true do
     find('.grid_btn', :text => 'Grid', visible: false).click
     expect(find("#Grid_active")).to have_css('.active')
+    expect(find("#List_active")).not_to have_css('.active')
     expect(current_path).to eq "/potepan/categories/#{bag_taxon.id}"
   end
 
-  scenario "GRID become active and switch URL when click LIST and then GRID ", js: true do
+  scenario "GRID become active, LIST dosen't become active and switch to intended URL when click LIST and then GRID ", js: true do
     find('.link_btn', :text => 'Link', visible: false).click
     find('.grid_btn', :text => 'Grid', visible: false).click
     expect(find("#Grid_active")).to have_css('.active')
