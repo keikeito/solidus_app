@@ -8,10 +8,10 @@ feature "categories pages" do
   given!(:ruby_shirt) { create(:product, name: 'Ruby_shirt') }
   # taxon
   given!(:bag_taxon) { create(:taxon, name: 'Bags') }
-  given!(:cap_taxon) { create(:taxon, name: 'Caps', taxonomy_id: taxonomy_categories.id, parent_id: 1) }
-  given!(:ruby_taxon) { create(:taxon, name: 'Ruby', taxonomy_id: Spree::Taxonomy.first.id, parent_id: 1) }
+  given!(:cap_taxon) { create(:taxon, name: 'Caps', taxonomy_id: categories_taxonomy.id, parent_id: Spree::Taxon.where(name: 'Categories').first.id) }
+  given!(:ruby_taxon) { create(:taxon, name: 'Ruby', taxonomy_id: Spree::Taxonomy.where(name: 'Brand').first.id, parent_id: Spree::Taxon.where(name: 'Brand').first.id) }
   # taxonomy
-  given!(:taxonomy_categories) { create(:taxonomy, name: "Categories") }
+  given!(:categories_taxonomy) { create(:taxonomy, name: "Categories") }
 
   background do
     image = File.open(File.expand_path('../../fixtures/JPEG_example_.jpg', __FILE__))
