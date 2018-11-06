@@ -47,7 +47,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
       end
 
       it "@products have an empty array" do
-        expect(assigns(:products)).to match_array([])
+        expect(assigns(:products)).to be_empty
       end
     end
   end
