@@ -63,7 +63,7 @@ feature "categories pages" do
     find('.link_btn', :text => 'Link', visible: false).click
     expect(find("#List_active")).to have_css('.active')
     uri = URI.parse(current_url)
-      expect("#{uri.path}?#{uri.query}").to eq "/potepan/categories/#{bag_taxon.id}?layout=list"
+    expect("#{uri.path}?#{uri.query}").to eq "/potepan/categories/#{bag_taxon.id}?layout=list"
   end
 
   scenario "GRID become active and switch URL when click GRID", js: true do

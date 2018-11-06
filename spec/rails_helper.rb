@@ -7,7 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'spree/testing_support/factories'
 # Add additional requires below this line. Rails is not loaded until this point!
-require'capybara/rspec'
+require 'capybara/rspec'
 require 'capybara/poltergeist'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -60,16 +60,16 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   # database_cleaner関連のセットアップ
   require 'database_cleaner'
-   config.before(:suite) do
-     DatabaseCleaner.strategy = :truncation
-     DatabaseCleaner.clean_with(:truncation)
-   end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-   config.before(:each) do
-     DatabaseCleaner.start
-   end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-   config.after(:each) do
-     DatabaseCleaner.clean
-   end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
