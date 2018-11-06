@@ -1,9 +1,9 @@
 module CategoriesHelper
-  def grid_layout?(layout)
-    layout != 'list'
+  def grid_layout?
+    params[:layout] != "list"
   end
 
-  def list_layout?(layout)
-    layout == 'list'
+  def list_layout?
+    params[:layout] == "list"
   end
 end
