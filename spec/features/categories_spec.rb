@@ -15,11 +15,11 @@ feature "categories pages" do
   # taxonomy
   given!(:brand_taxonomy) { create(:taxonomy, name: "Brand") }
   given!(:categories_taxonomy) { create(:taxonomy, name: "Categories") }
-  #images
-  given(:bag_image) { create(:image, viewable_id:bag.id, attachment_file_name: "bag_image") }
-  given(:tote_image) { create(:image, viewable_id:tote.id, attachment_file_name: "tote_image") }
-  given(:cap_image) { create(:image, viewable_id:cap.id, attachment_file_name: "cap_image") }
-  given(:ruby_shirt_image) { create(:image, viewable_id:ruby_shirt.id, attachment_file_name: "ruby_shirt_image") }
+  # images
+  given(:bag_image) { create(:image, viewable_id: bag.id, attachment_file_name: "bag_image") }
+  given(:tote_image) { create(:image, viewable_id: tote.id, attachment_file_name: "tote_image") }
+  given(:cap_image) { create(:image, viewable_id: cap.id, attachment_file_name: "cap_image") }
+  given(:ruby_shirt_image) { create(:image, viewable_id: ruby_shirt.id, attachment_file_name: "ruby_shirt_image") }
 
   background do
     bag.images << bag_image
@@ -87,9 +87,9 @@ feature "categories pages" do
 
   scenario "LIST become active, GRID dosen't become active and switch to intended URL when click LIST ", js: true do
     within('.filterArea') do
-    find('.link_btn', :text => 'Link', visible: false).click
-    expect(find("#List_active")).to have_css('.active')
-    expect(find("#Grid_active")).not_to have_css('.active')
+      find('.link_btn', :text => 'Link', visible: false).click
+      expect(find("#List_active")).to have_css('.active')
+      expect(find("#Grid_active")).not_to have_css('.active')
     end
     uri = URI.parse(current_url)
     expect("#{uri.path}?#{uri.query}").to eq potepan_category_path(bag_taxon.id, layout: "list")
@@ -97,19 +97,19 @@ feature "categories pages" do
 
   scenario "GRID become active, LIST dosen't become active and switch to intended URL when click GRID", js: true do
     within('.filterArea') do
-    find('.grid_btn', :text => 'Grid', visible: false).click
-    expect(find("#Grid_active")).to have_css('.active')
-    expect(find("#List_active")).not_to have_css('.active')
+      find('.grid_btn', :text => 'Grid', visible: false).click
+      expect(find("#Grid_active")).to have_css('.active')
+      expect(find("#List_active")).not_to have_css('.active')
     end
     expect(current_path).to eq potepan_category_path(bag_taxon.id)
   end
 
   scenario "GRID become active, LIST dosen't become active and switch to intended URL when click LIST and then GRID ", js: true do
     within('.filterArea') do
-    find('.link_btn', :text => 'Link', visible: false).click
-    find('.grid_btn', :text => 'Grid', visible: false).click
-    expect(find("#Grid_active")).to have_css('.active')
-    expect(find("#List_active")).not_to have_css('.active')
+      find('.link_btn', :text => 'Link', visible: false).click
+      find('.grid_btn', :text => 'Grid', visible: false).click
+      expect(find("#Grid_active")).to have_css('.active')
+      expect(find("#List_active")).not_to have_css('.active')
     end
     expect(current_path).to eq potepan_category_path(bag_taxon.id)
   end
