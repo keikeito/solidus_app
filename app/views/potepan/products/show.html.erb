@@ -1,6 +1,6 @@
 <% provide(:title, @product.name) %>
 <!-- LIGHT SECTION -->
-<%= render partial: 'potepan/shared/light_section', locals: { title: @product } %>
+<%= render 'potepan/shared/light_section', {pageHeader_title: @product, taxon: nil} %>
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix">
   <div class="container">
