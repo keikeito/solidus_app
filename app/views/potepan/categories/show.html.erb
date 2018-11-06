@@ -1,0 +1,74 @@
+<%= provide(:title, @taxon.name) %>
+<%= render 'potepan/shared/light_section', object: @taxon %>
+
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix productsContent">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
+        <%= render 'potepan/shared/categories' %>
+        <%= render 'potepan/shared/price-range-filter' %>
+        <%= render 'potepan/shared/color-filter' %>
+        <%= render 'potepan/shared/size-filter' %>
+      </div>
+      <div class="col-md-9 col-sm-8 col-xs-12">
+        <%= render 'potepan/shared/products-sort-filter' %>
+        <div class="row <%= params[:layout] == "list" ? "productListSingle" : "" %>">
+          <%= render partial: 'potepan/shared/product', collection: @products %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHT SECTION -->
+<section class="lightSection clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="owl-carousel partnersLogoSlider">
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-01.png", :alt => "partner-img") %>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-02.png", :alt => "partner-img") %>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-03.png", :alt => "partner-img") %>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-04.png", :alt => "partner-img") %>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-05.png", :alt => "partner-img") %>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-01.png", :alt => "partner-img") %>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-02.png", :alt => "partner-img") %>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <%= image_tag("img/home/partners/partner-03.png", :alt => "partner-img") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

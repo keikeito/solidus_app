@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">商品カテゴリー</div>
+  <div class="panel-body">
+    <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
+      <ul class="nav navbar-nav side-nav">
+        <% @taxonomies.each do |taxnomy| %>
+          <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxnomy.id %>"><%= taxnomy.name %>
+              <i class="fa fa-plus"></i>
+            </a>
+            <ul id="<%= taxnomy.id %>" class="collapse collapseItem">
+              <% taxnomy.taxons.each do |taxon| %>
+                <% next if taxon.root? %>
+                  <li>
+                    <%= link_to potepan_category_path(taxon.id) do %>
+                      <i class="fa fa-caret-right" aria-hidden="true"></i><%= taxon.name %>
+                      <span>(<%= Spree::Product.in_taxon(taxon).count %>)</span>
+                    <% end %>
+                  </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
