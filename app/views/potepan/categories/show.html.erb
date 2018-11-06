@@ -13,9 +13,11 @@
       </div>
       <div class="col-md-9 col-sm-8 col-xs-12">
         <%= render 'potepan/shared/products_sort_filter', taxon: @taxon %>
-        <div class="row <%= params[:layout] == "list" ? "productListSingle" : "" %>">
-          <%= render partial: 'potepan/shared/product', collection: @products %>
-        </div>
+          <% if list_layout? %>
+              <%= render partial: 'potepan/shared/list_product', collection: @products, as: 'product' %>
+          <% else %>
+              <%= render partial: 'potepan/shared/grid_product', collection: @products, as: 'product'  %>
+          <% end %>
       </div>
     </div>
   </div>
