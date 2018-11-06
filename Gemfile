@@ -53,6 +53,8 @@ group :development, :test do
   gem 'rubocop-airbnb'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 
 end
 
