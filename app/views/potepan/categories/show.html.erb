@@ -6,12 +6,12 @@
     <div class="row">
       <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
         <%= render 'potepan/shared/categories', locals: { taxonomies: @taxonomies } %>
-        <%= render 'potepan/shared/price-range-filter' %>
-        <%= render 'potepan/shared/color-filter' %>
-        <%= render 'potepan/shared/size-filter' %>
+        <%= render 'potepan/shared/price_range_filter' %>
+        <%= render 'potepan/shared/color_filter' %>
+        <%= render 'potepan/shared/size_filter' %>
       </div>
       <div class="col-md-9 col-sm-8 col-xs-12">
-        <%= render 'potepan/shared/products-sort-filter' %>
+        <%= render 'potepan/shared/products_sort_filter' %>
         <div class="row <%= params[:layout] == "list" ? "productListSingle" : "" %>">
           <%= render partial: 'potepan/shared/product', collection: @products %>
         </div>
