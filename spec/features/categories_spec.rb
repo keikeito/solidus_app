@@ -36,8 +36,8 @@ feature "categories pages" do
     within('.productlist') do
       expect(page).to have_content 'Bag'
       expect(page).to have_content 'Tote'
-      expect(page).to have_content bag.display_price
-      expect(page).to have_content tote.display_price
+      expect(page).to have_content "#{bag.display_price}"
+      expect(page).to have_content "#{tote.display_price}"
       expect(page).to have_selector "img[src='#{bag.display_image.attachment.url}']"
       expect(page).to have_selector "img[src='#{tote.display_image.attachment.url}']"
     end
@@ -47,8 +47,8 @@ feature "categories pages" do
     within('.productlist') do
       expect(page).not_to have_content 'Cap'
       expect(page).not_to have_content 'Ruby_shirt'
-      expect(page).not_to have_content cap.display_price
-      expect(page).not_to have_content ruby_shirt.display_price
+      expect(page).not_to have_content "#{cap.display_price}"
+      expect(page).not_to have_content "#{ruby_shirt.display_price}"
       expect(page).not_to have_selector "img[src='#{cap.display_image.attachment.url}']"
       expect(page).not_to have_selector "img[src='#{ruby_shirt.display_image.attachment.url}']"
     end
