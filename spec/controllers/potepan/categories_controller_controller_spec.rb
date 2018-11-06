@@ -1,38 +1,38 @@
 require 'rails_helper'
 
 RSpec.describe Potepan::CategoriesController, type: :controller do
-  let(:one_taxon) { create(:taxon, name: "one") }
-  let(:two_taxon) { create(:taxon, name: 'two') }
-  let(:products) { create_list(:product, 10) }
+  let(:cap_taxon) { create(:taxon, name: "cap") }
+  let(:wallet_taxon) { create(:taxon, name: 'wallet') }
+  let(:products) { create_list(:product, 5) }
   let(:taxonomies) { Spree::Taxonomy.includes(:taxons) }
 
-  describe "GET categories show with one_taxon" do
+  describe "GET categories show with cap_taxon" do
     before do
-      get :show, params: { id: one_taxon.id }
+      get :show, params: { id: cap_taxon.id }
     end
 
     it "render categories/show" do
-      expect(response).to render_template("potepan/categories/show")
+      expect(response).to render_template :show
     end
 
     it "returns successful response" do
       expect(response).to have_http_status(:ok)
     end
 
-    it "@taxon should have one_taxon" do
-      expect(assigns(:taxon)).to eq(one_taxon)
+    it "@taxon should have cap_taxon" do
+      expect(assigns(:taxon)).to eq(cap_taxon)
     end
 
-    it "@products should have one_taxon.products" do
+    it "@products should have cap_taxon.products" do
       products.each do |product|
-        product.taxons << one_taxon
+        product.taxons << cap_taxon
       end
       expect(assigns(:products)).to match_array(products)
     end
 
-    it "@products should have not two_taxon.products" do
+    it "@products should have not wallet_taxon.products" do
       products.each do |product|
-        product.taxons << two_taxon
+        product.taxons << wallet_taxon
       end
       expect(assigns(:products)).to match_array([])
     end
