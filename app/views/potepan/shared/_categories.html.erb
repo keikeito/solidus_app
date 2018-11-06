@@ -3,13 +3,13 @@
   <div class="panel-body">
     <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
       <ul class="nav navbar-nav side-nav">
-        <% @taxonomies.each do |taxnomy| %>
+        <% @taxonomies.each do |taxonomy| %>
           <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxnomy.id %>"><%= taxnomy.name %>
+            <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxonomy.id %>"><%= taxonomy.name %>
               <i class="fa fa-plus"></i>
             </a>
-            <ul id="<%= taxnomy.id %>" class="collapse collapseItem">
-              <% taxnomy.taxons.each do |taxon| %>
+            <ul id="<%= taxonomy.id %>" class="collapse collapseItem">
+              <% taxonomy.taxons.each do |taxon| %>
                 <% next if taxon.root? %>
                   <li>
                     <%= link_to potepan_category_path(taxon.id) do %>
